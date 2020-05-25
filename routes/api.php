@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('draft-board', 'API\PicksController@getDraftBoard');
-Route::get('get-user/{user?}', 'API\UserController@getUser');
-Route::get('players', 'API\RostersController@getAvailablePlayers');
-Route::get('rosters/{user?}', 'API\RostersController@getRosters');
+Route::middleware('active')->group(function () {
+    Route::get('draft-board', 'API\PicksController@getDraftBoard');
+    Route::get('get-user/{user?}', 'API\UserController@getUser');
+    Route::get('players', 'API\RostersController@getAvailablePlayers');
+    Route::get('rosters/{user?}', 'API\RostersController@getRosters');
+});
