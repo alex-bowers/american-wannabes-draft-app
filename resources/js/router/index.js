@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
-import Draftboard from '../components/Pages/Draftboard.vue'
+import DraftBoard from '../components/Pages/DraftBoard.vue'
 import Home from '../components/Pages/Home.vue'
 import Login from '../components/Pages/Login.vue'
 import Players from '../components/Pages/Players.vue'
@@ -21,7 +21,7 @@ export default new VueRouter({
         },
         {
             path: '/draft-board',
-            component: Draftboard
+            component: DraftBoard
         },
         {
             path: '/players',
