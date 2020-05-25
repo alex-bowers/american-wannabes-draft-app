@@ -15,7 +15,7 @@ class SocialAuthTwitterController extends Controller
      */
     public function redirect()
     {
-    return Socialite::driver('twitter')->redirect();
+        return Socialite::driver('twitter')->redirect();
     }
 
     /**
@@ -27,7 +27,7 @@ class SocialAuthTwitterController extends Controller
     {
         $user = $service->createOrGetUser(Socialite::driver('twitter')->user());
         Auth::login($user, true);
-        
+
         return redirect()->to('/home');
     }
 }
