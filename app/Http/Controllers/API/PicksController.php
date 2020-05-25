@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Pick as PickResource;
+use App\Http\Resources\PickResource;
 use App\Models\Pick;
 
 class PicksController extends Controller
