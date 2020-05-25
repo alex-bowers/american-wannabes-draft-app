@@ -3740,7 +3740,7 @@ var render = function() {
                     _c(
                       "router-link",
                       {
-                        attrs: { to: "home" },
+                        attrs: { to: "/" },
                         nativeOn: {
                           click: function($event) {
                             return _vm.updateNavigationStatus()
@@ -9271,7 +9271,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     path: '/login',
     component: _components_Pages_Login_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
-    path: '/home',
+    path: '/',
     component: _components_Pages_Home_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {
     path: '/draft-board',

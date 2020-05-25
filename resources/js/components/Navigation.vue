@@ -17,7 +17,7 @@
         </div>
         <transition name="menu-slide-in">
             <div v-if="isShowingNavigation" class="navigation--pages">
-                <router-link :to="'home'" @click.native="updateNavigationStatus()">Home</router-link>
+                <router-link :to="'/'" @click.native="updateNavigationStatus()">Home</router-link>
                 <router-link :to="'draft-board'" @click.native="updateNavigationStatus()">Draft Board</router-link>
                 <router-link :to="'players'" @click.native="updateNavigationStatus()">Players</router-link>
                 <router-link :to="'rosters'" @click.native="updateNavigationStatus()">Rosters</router-link>
