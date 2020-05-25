@@ -176,9 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         // Other service providers...
-        Laravel\Socialite\SocialiteServiceProvider::class,
-        GrahamCampbell\Security\SecurityServiceProvider::class,
-        GrahamCampbell\Binput\BinputServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class
 
     ],
 
@@ -199,7 +197,6 @@ return [
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
-        'Binput' => GrahamCampbell\Binput\Facades\Binput::class,
         'Blade' => Illuminate\Support\Facades\Blade::class,
         'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
         'Bus' => Illuminate\Support\Facades\Bus::class,
