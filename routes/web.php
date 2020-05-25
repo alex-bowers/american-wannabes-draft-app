@@ -19,14 +19,8 @@ Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout'
 Auth::routes();
 
 // Twitter Login.
-Route::get('/redirect', 'SocialAuthTwitterController@redirect');
 Route::get('/callback', 'SocialAuthTwitterController@callback');
+Route::get('/redirect', 'SocialAuthTwitterController@redirect');
 
-Route::middleware(['active'])->group(function () {
-    Route::get('api/get-user/{user?}', 'API\UserController@getUser');
-    Route::get('api/rosters/{user?}', 'API\RostersController@getRosters');
-    Route::get('api/players', 'API\RostersController@getAvailablePlayers');
-    Route::get('api/draft-board', 'API\PicksController@getDraftBoard');
-});
-
+// Anything else for Vue router.
 Route::get('/{any}', 'HomeController@index');

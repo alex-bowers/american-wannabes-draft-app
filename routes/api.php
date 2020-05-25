@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('draft-board', 'API\PicksController@getDraftBoard');
+Route::get('get-user/{user?}', 'API\UserController@getUser');
+Route::get('players', 'API\RostersController@getAvailablePlayers');
+Route::get('rosters/{user?}', 'API\RostersController@getRosters');
