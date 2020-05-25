@@ -1,0 +1,17 @@
+.menu-slide-in-enter-active,
+.menu-slide-in-leave-active {
+    transition: all 300ms ease-in;
+}
+.menu-slide-in-enter,
+.menu-slide-in-leave-to {
+    margin-left: -100%;
+}
+
+.modal-fade-enter,
+.modal-fade-leave-active {
+    opacity: 0;
+}
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+    transition: opacity .5s ease
+}
