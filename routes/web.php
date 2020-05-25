@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
-Auth::routes();
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 
 // Twitter Login.
 Route::get('/callback', 'SocialAuthTwitterController@callback');

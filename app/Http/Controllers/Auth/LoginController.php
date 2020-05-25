@@ -37,4 +37,14 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * Show the application.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function showLoginForm()
+    {
+        return view('home');
+    }
 }
