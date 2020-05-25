@@ -1,8 +1,16 @@
 <template>
     <div class="draft-board--table">
-        <div v-for="(round, roundIndex) in $props.board" :key="roundIndex" class="table-round">
+        <div
+            v-for="(round, roundIndex) in $props.board"
+            :key="roundIndex"
+            class="table-round"
+        >
             <h2>Round {{ roundIndex }}</h2>
-            <div v-for="(pick, pickIndex) in $props.board[roundIndex]" :key="pickIndex" class="table-pick">
+            <div
+                v-for="(pick, pickIndex) in $props.board[roundIndex]"
+                :key="pickIndex"
+                class="table-pick"
+            >
                 <h3>Pick {{ pickIndex + 1 }}</h3>
                 <div v-if="pick.player" class="table-pick--player">
                     {{ pick.player.name }}
@@ -24,5 +32,5 @@ export default {
             default: null
         }
     }
-};
+}
 </script>

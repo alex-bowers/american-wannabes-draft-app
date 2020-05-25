@@ -1,20 +1,22 @@
 <template>
-    <div v-if="signedIn" class="navigation">
+    <div v-if="isSignedIn" class="navigation">
         <div class="navigation--hamburger">
-            <button @click="updateNavigationStatus()"
-                    :class="{'is-active': navigationStatus}"
-                    class="hamburger hamburger--elastic"
-                    type="button"
-                    aria-label="Menu"
-                    aria-controls="navigation"
-                    aria-expanded="true/false">
+            <button
+                @click="updateNavigationStatus(!isShowingNavigation)"
+                :class="{'is-active': isShowingNavigation}"
+                class="hamburger hamburger--elastic"
+                type="button"
+                aria-label="Menu"
+                aria-controls="navigation"
+                aria-expanded="true/false"
+            >
                 <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
+                    <span class="hamburger-inner"></span>
                 </span>
             </button>
         </div>
         <transition name="menu-slide-in">
-            <div v-if="navigationStatus" class="navigation--pages">
+            <div v-if="isShowingNavigation" class="navigation--pages">
                 <router-link :to="'home'" @click.native="updateNavigationStatus()">Home</router-link>
                 <router-link :to="'draft-board'" @click.native="updateNavigationStatus()">Draft Board</router-link>
                 <router-link :to="'players'" @click.native="updateNavigationStatus()">Players</router-link>
@@ -24,19 +26,15 @@
     </div>
 </template>
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations, mapState } from 'vuex'
 
 export default {
     computed: {
-        ...mapGetters(["navigationStatus", "signedIn"])
+        ...mapGetters(['isSignedIn']),
+        ...mapState(['isShowingNavigation'])
     },
     methods: {
-        updateNavigationStatus() {
-            this.$store.commit(
-                "updateNavigationStatus",
-                !this.navigationStatus
-            );
-        }
+        ...mapMutations(['updateNavigationStatus'])
     }
 };
 </script>

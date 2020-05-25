@@ -12,22 +12,19 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 
-    import DraftTable from '../DraftBoard/Table.vue';
-    import NextPick from '../Common/NextPick.vue';
+import DraftTable from '../DraftBoard/Table.vue'
+import NextPick from '../Common/NextPick.vue'
 
-    export default {
-        components: {
-            DraftTable,
-            NextPick
-        },
-        computed: {
-            ...mapGetters([
-                'draftBoard',
-                'nextPick',
-                'user'
-            ])
-        },
-    }
+export default {
+    components: {
+        DraftTable,
+        NextPick
+    },
+    computed: {
+        ...mapGetters(['nextPick',]),
+        ...mapState(['draftBoard', 'user'])
+    },
+}
 </script>

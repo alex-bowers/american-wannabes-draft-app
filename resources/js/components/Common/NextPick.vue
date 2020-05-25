@@ -5,7 +5,7 @@
             <span>Pick {{ $props.pick.number }}</span>
         </div>
         <div class="next-pick--message">
-            <div v-if="userHasCurrentPick">
+            <div v-if="currentUserHasCurrentPick">
                 <span>You're on the clock!</span>
                 <button>
                     <router-link :to="'players'">Select Player</router-link>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex'
 
 export default {
     props: {
@@ -28,10 +28,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(["userHasCurrentPick"])
+        ...mapGetters(['currentUserHasCurrentPick'])
     }
-};
+}
 </script>
-
-<style scoped>
-</style>

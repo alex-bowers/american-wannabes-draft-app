@@ -1,10 +1,10 @@
-export const state = {
+export default {
     currentPlayer: null,
+    currentUser: {},
     draftBoard: {},
+    isShowingNavigation: false,
+    isShowingPlayerModal: false,
     playerType: null,
     players: {},
-    rosters: {},
-    showPlayerModal: false,
-    showNavigation: false,
-    user: {}
-};
+    rosters: {}
+}

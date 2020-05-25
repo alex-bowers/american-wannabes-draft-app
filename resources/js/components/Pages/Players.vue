@@ -3,24 +3,30 @@
         <h1>PLAYERS</h1>
         <a @click="setPlayerType('rookies')">Rookies</a>
         <a @click="setPlayerType('veterans')">Veterans</a>
-        <position v-if="hasPlayerType" v-for="(position, positionIndex) in players" :key="positionIndex"
-                  :position="positionIndex"
-                  :players="position"
-        ></position>
-        <modal v-show="showPlayerModal"
-               @close="closeModal">
-            <div slot="header">Player Header</div>
-            <div slot="body">Player {{ currentPlayer }}</div>
+        <div v-if="hasPlayerType">
+            <position
+                v-for="(position, positionIndex) in players"
+                :key="positionIndex"
+                :position="positionIndex"
+                :players="position"
+            ></position>
+        </div>
+        <modal
+            v-if="isShowingPlayerModal"
+            @close="closeModal"
+        >
+            <div slot="header">{{ currentPlayer.name }}</div>
+            <div slot="body">{{ currentPlayer.position }}</div>
         </modal>
     </div>
 </template>
 
 <script>
-import Vue from "vue";
-import { mapGetters } from "vuex";
+import Vue from 'vue'
+import { mapActions, mapGetters, mapMutations, mapState } from 'vuex'
 
-import Modal from "../Common/modal.vue";
-import Position from "../Players/Position.vue";
+import Modal from '../Common/Modal.vue'
+import Position from '../Players/Position.vue'
 
 export default {
     components: {
@@ -30,34 +36,33 @@ export default {
     mounted() {
         Vue.nextTick(() => {
             if (!this.hasPlayers) {
-                this.fetchPlayers();
+                this.fetchPlayers()
             }
-        });
+        })
     },
     computed: {
-        ...mapGetters(["currentPlayer", "hasPlayers", "hasPlayerType", "players", "showPlayerModal"])
+        ...mapGetters([
+            'hasPlayerType',
+            'hasPlayers',
+            'players'
+        ]),
+        ...mapState([
+            'currentPlayer',
+            'isShowingPlayerModal'
+        ])
     },
     methods: {
+        ...mapActions(['fetchPlayers']),
+        ...mapMutations([
+            'updatePlayerModalStatus',
+            'updatePlayerType'
+        ]),
         closeModal() {
-            this.$store.commit("updatePlayerModalStatus", false);
-        },
-        fetchPlayers() {
-            window.axios.get("/api/players").then(response => {
-                const data = response.data;
-
-                if (data) {
-                    this.$store.commit("updatePlayers", data);
-                }
-            });
+            this.updatePlayerModalStatus(false)
         },
         setPlayerType(type) {
-            this.$store.commit("updatePlayerType", type);
-        }
-    },
-    watch: {
-        currentPlayer(player) {
-            console.log(player);
+            this.updatePlayerType(type)
         }
     }
-};
+}
 </script>

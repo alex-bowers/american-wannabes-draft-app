@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id='app'>
         <navigation></navigation>
 
         <router-view></router-view>
@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { mapGetters } from "vuex";
+import Vue from 'vue'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 
-import Navigation from "./components/Navigation.vue";
+import Navigation from './components/Navigation.vue'
 
 export default {
     components: {
@@ -18,37 +18,22 @@ export default {
     },
     mounted() {
         Vue.nextTick(() => {
-            this.fetchUser();
+            this.fetchUser()
 
             if (!this.hasDraftBoard) {
-                this.fetchDraftBoard();
+                this.fetchDraftBoard()
             }
-        });
+        })
     },
     computed: {
-        ...mapGetters(["hasDraftBoard"])
+        ...mapGetters(['hasDraftBoard'])
     },
     methods: {
-        fetchDraftBoard() {
-            window.axios.get("/api/draft-board").then(response => {
-                const data = response.data;
-
-                if (data) {
-                    this.$store.commit("updateBoard", data);
-                }
-            });
-        },
-        fetchUser() {
-            window.axios.get("/api/get-user").then(response => {
-                const user = response.data;
-                if (typeof user === "object") {
-                    this.$store.state.user = user;
-                }
-            });
-        }
+        ...mapActions([
+            'fetchDraftBoard',
+            'fetchUser'
+        ]),
+        ...mapMutations(['updateBoard']),
     }
-};
+}
 </script>
-
-<style scoped>
-</style>

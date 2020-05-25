@@ -8,19 +8,16 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
-    import NextPick from '../Common/NextPick.vue';
+import NextPick from '../Common/NextPick.vue'
 
-    export default {
-        components: {
-            NextPick
-        },
-        computed: {
-            ...mapGetters([
-                'nextPick',
-                'user'
-            ])
-        },
+export default {
+    components: {
+        NextPick
+    },
+    computed: {
+        ...mapGetters(['nextPick'])
     }
+}
 </script>

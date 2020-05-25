@@ -26,10 +26,10 @@
 
 <script>
 export default {
-    name: "modal",
+    name: 'modal',
     methods: {
         close() {
-            this.$emit("close");
+            this.$emit('close')
         }
     }
 };
@@ -38,39 +38,39 @@ export default {
 <style>
 .modal-backdrop {
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .modal {
+    display: flex;
+    flex-direction: column;
     background: #ffffff;
     box-shadow: 2px 2px 20px 1px;
     overflow-x: auto;
-    display: flex;
-    flex-direction: column;
 }
 
 .modal-header,
 .modal-footer {
-    padding: 15px;
     display: flex;
+    padding: 15px;
 }
 
 .modal-header {
+    justify-content: space-between;
     border-bottom: 1px solid #eeeeee;
     color: #4aae9b;
-    justify-content: space-between;
 }
 
 .modal-footer {
-    border-top: 1px solid #eeeeee;
     justify-content: flex-end;
+    border-top: 1px solid #eeeeee;
 }
 
 .modal-body {
