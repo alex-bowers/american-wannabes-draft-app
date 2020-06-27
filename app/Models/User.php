@@ -16,11 +16,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'name'           => 'string',
-        'email'          => 'string',
-        'password'       => 'string',
-        'remember_token' => 'string',
-        'active'         => 'bool',
+        'name'              => 'string',
+        'fantasy_team_name' => 'string',
+        'email'             => 'string',
+        'password'          => 'string',
+        'remember_token'    => 'string',
+        'active'            => 'bool',
     ];
 
     /**
@@ -30,6 +31,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'fantasy_team_name',
         'email',
         'password',
         'remember_token',
@@ -51,11 +53,12 @@ class User extends Authenticatable
      * @var string[]
      */
     public $rules = [
-        'name'           => 'required|string',
-        'email'          => 'required|string',
-        'password'       => 'required|string',
-        'remember_token' => 'nullable|string',
-        'active'         => 'required|bool',
+        'name'              => 'required|string',
+        'fantasy_team_name' => 'nullable|string',
+        'email'             => 'required|string',
+        'password'          => 'required|string',
+        'remember_token'    => 'nullable|string',
+        'active'            => 'required|bool',
     ];
 
     /**

@@ -17,6 +17,7 @@ class UsersTableSeeder extends Seeder
         $testUsers = [
             [
                 'name' => "test1",
+                'fantasy_team_name' => "Burslem Spitfires",
                 'email' => Str::random(10).'@gmail.com',
                 'password' => bcrypt('test1'),
                 'active' => 1,
@@ -25,6 +26,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => "test2",
+                'fantasy_team_name' => "Deez Nuts",
                 'email' => Str::random(10).'@gmail.com',
                 'password' => bcrypt('test2'),
                 'active' => 1,
@@ -33,6 +35,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => "test3",
+                'fantasy_team_name' => "Wobblers XI",
                 'email' => Str::random(10).'@gmail.com',
                 'password' => bcrypt('test3'),
                 'active' => 1,
@@ -41,6 +44,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => "test4",
+                'fantasy_team_name' => "Always Sony in New England",
                 'email' => Str::random(10).'@gmail.com',
                 'password' => bcrypt('test4'),
                 'active' => 1,
@@ -49,6 +53,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => "test5",
+                'fantasy_team_name' => "Foxville  49ers",
                 'email' => Str::random(10).'@gmail.com',
                 'password' => bcrypt('test5'),
                 'active' => 1,
@@ -57,6 +62,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => "test6",
+                'fantasy_team_name' => "Laces Out",
                 'email' => Str::random(10).'@gmail.com',
                 'password' => bcrypt('test6'),
                 'active' => 1,
@@ -65,6 +71,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => "test7",
+                'fantasy_team_name' => "Throwing On The One",
                 'email' => Str::random(10).'@gmail.com',
                 'password' => bcrypt('test7'),
                 'active' => 1,
@@ -73,6 +80,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => "test8",
+                'fantasy_team_name' => "Factory of Sadness",
                 'email' => Str::random(10).'@gmail.com',
                 'password' => bcrypt('test8'),
                 'active' => 1,
@@ -81,6 +89,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => "test9",
+                'fantasy_team_name' => "Storts' Superstars",
                 'email' => Str::random(10).'@gmail.com',
                 'password' => bcrypt('test9'),
                 'active' => 1,
@@ -89,6 +98,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => "test10",
+                'fantasy_team_name' => "Made in Kelce",
                 'email' => Str::random(10).'@gmail.com',
                 'password' => bcrypt('test10'),
                 'active' => 1,
@@ -97,6 +107,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => "test11",
+                'fantasy_team_name' => "Founding Failures",
                 'email' => Str::random(10).'@gmail.com',
                 'password' => bcrypt('test11'),
                 'active' => 1,
@@ -105,6 +116,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => "test12",
+                'fantasy_team_name' => "Show Me Bryce Love",
                 'email' => Str::random(10).'@gmail.com',
                 'password' => bcrypt('test12'),
                 'active' => 1,
@@ -113,6 +125,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => "test13",
+                'fantasy_team_name' => "Bay Harbor Butchers",
                 'email' => Str::random(10).'@gmail.com',
                 'password' => bcrypt('test13'),
                 'active' => 1,
@@ -121,6 +134,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => "test14",
+                'fantasy_team_name' => "Essex Jamspanglers",
                 'email' => Str::random(10).'@gmail.com',
                 'password' => bcrypt('test14'),
                 'active' => 1,

@@ -18,7 +18,7 @@ class CreatePlayersTable extends Migration
             $table->string('name', 100);
             $table->string('position', 3);
             $table->tinyInteger('team')->nullable()->default(null);
-            $table->integer('college');
+            $table->integer('college')->nullable()->default(null);
             $table->tinyInteger('owned_by')->nullable()->default(null);
             $table->boolean('rookie')->default(false);
             $table->boolean('free_agent')->default(false);
