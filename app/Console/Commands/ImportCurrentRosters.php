@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\NFLTeam;
 use App\Models\Player;
 use App\Models\User;
 use Illuminate\Console\Command;
@@ -108,10 +109,14 @@ class ImportCurrentRosters extends Command
                 continue;
             }
 
+            $playerData = explode(' - ', $player);
+            $nflTeam = NFLTeam::where('abbreviation', $playerData[1])->first();
             $userId = $this->findCorrectUserId($team, $users);
+
             Player::insert([
-                'name'     => $player,
+                'name'     => $playerData[0],
                 'position' => $position,
+                'team'     => $nflTeam ? $nflTeam->id : null,
                 'owned_by' => $userId,
             ]);
         }
