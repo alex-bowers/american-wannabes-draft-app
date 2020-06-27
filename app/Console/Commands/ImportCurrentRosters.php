@@ -63,6 +63,8 @@ class ImportCurrentRosters extends Command
                     $this->insertPlayers($currentPosition, $row, $userTeams);
                 }
             }
+
+            $this->info('Rosters have been imported');
         } else {
             $this->error('File not found.');
         }
