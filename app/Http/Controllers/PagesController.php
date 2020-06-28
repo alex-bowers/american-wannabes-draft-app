@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-class HomeController extends Controller
+class PagesController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -11,7 +11,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('active');
+        // $this->middleware('active');
     }
 
     /**
@@ -22,5 +22,15 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    /**
+    * Show the holding page. Which is needed when a user isn't authenticated.
+    *
+    * @return \Illuminate\Contracts\Support\Renderable
+    */
+    public function showHoldingPage()
+    {
+        return view('holding');
     }
 }

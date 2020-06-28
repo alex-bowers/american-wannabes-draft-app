@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Active
+class Holding
 {
     /**
      * Handle an incoming request.
@@ -15,14 +15,12 @@ class Active
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user()) {
-            if ($request->user()->active) {
-                return $next($request);
-            } else {
-                return redirect('/holding');
-            }
+        if (!$request->user()) {
+            return redirect('/login');
+        } elseif ($request->user()->active) {
+            return redirect('/');
         }
 
-        return redirect('/login');
+        return $next($request);
     }
 }
