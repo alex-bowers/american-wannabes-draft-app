@@ -18,8 +18,8 @@ class CreatePicksTable extends Migration
             $table->tinyInteger('round');
             $table->tinyInteger('number');
             $table->year('year');
-            $table->tinyInteger('owned_by');
-            $table->tinyInteger('player_id')->nullable()->default(null);
+            $table->integer('owned_by');
+            $table->integer('player_id')->nullable()->default(null);
             $table->timestamps();
 
             $table->index('round');
