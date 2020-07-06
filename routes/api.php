@@ -19,4 +19,5 @@ Route::middleware('active')->group(function () {
     Route::get('get-user/{user?}', 'API\UserController@getUser');
     Route::get('players', 'API\RostersController@getAvailablePlayers');
     Route::get('rosters/{user?}', 'API\RostersController@getRosters');
+    Route::post('pick/{pick}/select-player/{player}', 'API\PicksController@selectPlayerFromDraft');
 });

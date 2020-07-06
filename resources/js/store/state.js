@@ -6,5 +6,5 @@ export default {
     isShowingPlayerModal: false,
     playerType: null,
     players: {},
-    rosters: {}
+    rosters: []
 }

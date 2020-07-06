@@ -1,24 +1,35 @@
 <template>
     <transition name="modal-fade">
         <div class="modal-backdrop">
-            <div class="modal"
-                 role="dialog"
-                 aria-labelledby="modalTitle"
-                 aria-describedby="modalDescription">
-                <header class="modal-header"
-                        id="modalTitle">
+            <div
+                aria-describedby="modalDescription"
+                aria-labelledby="modalTitle"
+                class="modal"
+                role="dialog"
+            >
+                <header
+                    class="modal-header"
+                    id="modalTitle"
+                >
                     <slot name="header"></slot>
-                    <button type="button"
-                            class="btn-close"
-                            @click="close"
-                            aria-label="Close modal">
+                    <button
+                        @click="close"
+                        aria-label="Close modal"
+                        class="button-close"
+                        type="button"
+                    >
                         x
                     </button>
                 </header>
-                <section class="modal-body"
-                         id="modalDescription">
+                <section
+                    class="modal-body"
+                    id="modalDescription"
+                >
                     <slot name="body"></slot>
                 </section>
+                <footer>
+                    <slot name="footer"></slot>
+                </footer>
             </div>
         </div>
     </transition>
@@ -35,7 +46,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '../../../sass/_variables.scss';
+
 .modal-backdrop {
     position: fixed;
     display: flex;
@@ -46,52 +59,48 @@ export default {
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.3);
+    z-index: 3;
 }
 
 .modal {
     display: flex;
     flex-direction: column;
-    background: #ffffff;
+    background: $white;
     box-shadow: 2px 2px 20px 1px;
+    height: 300px;
     overflow-x: auto;
+    width: 300px;
+    .modal-header,
+    .modal-footer {
+        display: flex;
+        padding: 15px;
+    }
+    .modal-header {
+        justify-content: space-between;
+        border-bottom: 1px solid #eeeeee;
+        color: #4aae9b;
+    }
+    .modal-footer {
+        justify-content: flex-end;
+        border-top: 1px solid #eeeeee;
+    }
+    .modal-body {
+        position: relative;
+        padding: 20px 10px;
+    }
 }
 
-.modal-header,
-.modal-footer {
-    display: flex;
-    padding: 15px;
-}
-
-.modal-header {
-    justify-content: space-between;
-    border-bottom: 1px solid #eeeeee;
-    color: #4aae9b;
-}
-
-.modal-footer {
-    justify-content: flex-end;
-    border-top: 1px solid #eeeeee;
-}
-
-.modal-body {
-    position: relative;
-    padding: 20px 10px;
-}
-
-.btn-close {
-    border: none;
-    font-size: 20px;
-    padding: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #4aae9b;
+.button-close {
     background: transparent;
+    border: none;
+    color: #4aae9b;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px;
 }
 
-.btn-green {
-    color: white;
-    background: #4aae9b;
-    border: 1px solid #4aae9b;
-    border-radius: 2px;
+@media screen and (min-width: $breakpoint-medium) {
+
 }
 </style>

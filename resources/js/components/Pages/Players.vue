@@ -1,22 +1,43 @@
 <template>
     <div>
         <h1>PLAYERS</h1>
-        <a @click="setPlayerType('rookies')">Rookies</a>
-        <a @click="setPlayerType('veterans')">Veterans</a>
+        <a @click="updatePlayerType('rookies')">Rookies</a>
+        <a @click="updatePlayerType('veterans')">Veterans</a>
         <div v-if="hasPlayerType">
             <position
                 v-for="(position, positionIndex) in players"
                 :key="positionIndex"
-                :position="positionIndex"
                 :players="position"
+                :position="positionIndex"
             ></position>
         </div>
         <modal
             v-if="isShowingPlayerModal"
             @close="closeModal"
         >
-            <div slot="header">{{ currentPlayer.name }}</div>
-            <div slot="body">{{ currentPlayer.position }}</div>
+            <div slot="header">
+                <h3 v-if="currentUserHasCurrentPick">
+
+                </h3>
+            </div>
+            <div slot="body">
+                <h2>{{ currentPlayer.name }}</h2>
+                <ul>
+                    <li>Position: {{ currentPlayer.position }}</li>
+                    <li v-if="fullProTeamName">
+                        Team: {{ fullProTeamName }}
+                    </li>
+                    <li v-if="fullCollegeTeamName">
+                        College: {{ fullCollegeTeamName }}
+                    </li>
+                </ul>
+            </div>
+            <div
+                v-if="currentUserHasCurrentPick"
+                slot="footer"
+            >
+                <button @click="selectPlayer">Select Player</button>
+            </div>
         </modal>
     </div>
 </template>
@@ -38,10 +59,13 @@ export default {
             if (!this.hasPlayers) {
                 this.fetchPlayers()
             }
+
+            this.updatePlayerType('rookies');
         })
     },
     computed: {
         ...mapGetters([
+            'currentUserHasCurrentPick',
             'hasPlayerType',
             'hasPlayers',
             'players'
@@ -49,10 +73,23 @@ export default {
         ...mapState([
             'currentPlayer',
             'isShowingPlayerModal'
-        ])
+        ]),
+        fullCollegeTeamName() {
+            return this.currentPlayer && this.currentPlayer.college
+                ? `${this.currentPlayer.college.team} ${this.currentPlayer.college.nickname}`
+                : null
+        },
+        fullProTeamName() {
+            return this.currentPlayer && this.currentPlayer.team
+                ? `${this.currentPlayer.team.team} ${this.currentPlayer.team.nickname}`
+                : null
+        }
     },
     methods: {
-        ...mapActions(['fetchPlayers']),
+        ...mapActions([
+            'fetchPlayers',
+            'selectPlayerFromDraft'
+        ]),
         ...mapMutations([
             'updatePlayerModalStatus',
             'updatePlayerType'
@@ -60,8 +97,10 @@ export default {
         closeModal() {
             this.updatePlayerModalStatus(false)
         },
-        setPlayerType(type) {
-            this.updatePlayerType(type)
+        selectPlayer() {
+            if(confirm('Are you sure?')) {
+                this.selectPlayerFromDraft()
+            }
         }
     }
 }
