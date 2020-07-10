@@ -9,7 +9,7 @@ export default {
         if (state.rosters.length) {
             const rosterId = state.rosters.findIndex((roster) => roster.id === state.currentUser.id)
 
-            state.rosters[rosterId].players.push(payload.player)
+            state.rosters[rosterId].players[payload.player.position].push(payload.player)
         }
     },
     removeSelectedPlayerFromAvailablePlayers(state, payload) {

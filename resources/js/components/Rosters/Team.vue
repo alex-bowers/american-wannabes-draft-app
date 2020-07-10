@@ -5,12 +5,18 @@
         </div>
         <div v-if="$props.team.players" class="team--players">
             <div
-                v-for="(player, playerIndex) in $props.team.players"
-                :key="playerIndex"
-                class="players--wrap"
+                v-for="(position, positionIndex) in $props.team.players"
+                :key="positionIndex"
+                class="position--wrap"
             >
-                <div class="rosters--player">
-                    <h3>{{ player.name }}</h3>
+                <div
+                    v-for="(player, playerIndex) in position"
+                    :key="playerIndex"
+                    class="players--wrap"
+                >
+                    <div class="rosters--player">
+                        <h3>{{ player.name }}</h3>
+                    </div>
                 </div>
             </div>
         </div>

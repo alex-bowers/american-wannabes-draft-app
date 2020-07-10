@@ -20,7 +20,7 @@ class PlayerResource extends JsonResource
             'position'       => $this->position,
             'team'           => $this->proTeam,
             'college'        => $this->collegeTeam,
-            'owned_by'      => $this->ownedBy,
+            'owned_by'       => $this->ownedBy,
             'rookie'         => $this->rookie,
             'free_agent'     => $this->free_agent,
             'recently_added' => $this->recently_added
