@@ -22,7 +22,7 @@ export default {
     nextPick: (state, getters) => {
         if (getters.hasDraftBoard) {
             for (const round in state.draftBoard) {
-                const hasAvailablePick = state.draftBoard[round].find(pick => {
+                const hasAvailablePick = Object.values(state.draftBoard[round]).find(pick => {
                     if (!pick.player) {
                         return pick
                     }

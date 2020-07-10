@@ -11,7 +11,7 @@
                 :key="pickIndex"
                 class="table-pick"
             >
-                <h3>Pick {{ pickIndex + 1 }}</h3>
+                <h3>Pick {{ pickIndex }}</h3>
                 <div v-if="pick.player" class="table-pick--player">
                     {{ pick.player.name }}
                 </div>

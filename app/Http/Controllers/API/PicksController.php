@@ -15,6 +15,8 @@ class PicksController extends Controller
 
         return PickResource::collection($picks)->mapToGroups(function($item, $key) {
             return [$item['round'] => $item];
+        })->map(function($round) {
+            return $round->keyBy('number');
         });
     }
 

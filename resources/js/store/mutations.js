@@ -1,9 +1,8 @@
 export default {
     addSelectedPlayerToDraftBoard(state, payload) {
         const currentRound = payload.pick.round
-        const currentPick = state.draftBoard[currentRound].findIndex((pick) => pick.number === payload.pick.number)
 
-        state.draftBoard[currentRound][currentPick].player = payload.player
+        state.draftBoard[currentRound][payload.pick.number].player = payload.player
     },
     addSelectedPlayerToRoster(state, payload) {
         // I don't need to update rosters if they haven't been fetched yet.
